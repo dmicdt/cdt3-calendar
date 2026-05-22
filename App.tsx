@@ -31,7 +31,7 @@ const App: React.FC = () => {
   const weeks = useMemo(() => {
     // We pass filteredEvents to generate the grid. 
     // Note: This hides the event from the grid but keeps the date cell.
-    return generateAcademicYear('2025-09-29', '2027-01-01', filteredEvents);
+    return generateAcademicYear('2026-09-29', '2028-01-01', filteredEvents);
   }, [filteredEvents]);
 
   return (
@@ -50,7 +50,7 @@ const App: React.FC = () => {
                         CDT Year Planner
                     </h1>
                     <div className="flex items-center gap-2 text-sm text-gray-500 font-medium mt-1">
-                        <span className="bg-[#003366] text-white px-2 py-0.5 rounded-full text-[10px] font-bold uppercase">25/26</span>
+                        <span className="bg-[#003366] text-white px-2 py-0.5 rounded-full text-[10px] font-bold uppercase">26/27</span>
                         <span>AI for Digital Media Inclusion</span>
                     </div>
                 </div>
@@ -158,7 +158,7 @@ const App: React.FC = () => {
                                     </div>
 
                                     {/* Events */}
-                                    {day.dateStr < '2025-10-01' ? (
+                                    {day.dateStr < '2026-10-01' ? (
                                         <div className="flex-1 flex items-center justify-center bg-gray-50 rounded border border-dashed border-gray-200">
                                         </div>
                                     ) : day.isHoliday ? (
@@ -192,7 +192,7 @@ const App: React.FC = () => {
                     {/* Final Row */}
                     <div className="grid grid-cols-[80px_repeat(5,1fr)] bg-gray-50 min-h-[60px]">
                         <div className="col-span-6 flex items-center justify-center p-4 text-sm text-gray-500 italic font-medium">
-                             Summer Period (Jun 2026 - Sep 2026) — Focus on Individual PhD Research
+                             Summer Period (Jun 2027 - Sep 2027) — Focus on Individual PhD Research
                         </div>
                     </div>
                 </div>

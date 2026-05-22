@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   // 'base: ./' ensures the app works if hosted at root (dmicdt.github.io) 
   // or a subdirectory (dmicdt.github.io/planner)
-  base: '/', 
+  base: '/cdt3-calendar/', 
   build: {
     outDir: 'dist',
   }
