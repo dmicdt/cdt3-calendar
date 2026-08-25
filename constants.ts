@@ -25,17 +25,14 @@ export const INITIAL_EVENTS: CalendarEvent[] = [
   { id: id(), date: "2026-10-01", time: "9:45-17:30", title: "CDT Induction Day 1", location: "Surrey 21BA02", type: "core" },
   { id: id(), date: "2026-10-02", time: "10:30-12:00", title: "RHUL Doctoral School Induction", location: "RHUL Davison 104", type: "core" },
   { id: id(), date: "2026-10-02", time: "10:00-13:00", title: "Surrey Registration", location: "Hive & 23BA02", type: "core" },
-  { id: id(), date: "2026-10-02", time: "14:00-16:00", title: "What's a PhD?", location: "Online", type: "core" },
-  { id: id(), date: "2026-10-03", time: "10:00-13:00", title: "Introduction to Inclusion", location: "RHUL Windsor 103", type: "inclusion" },
+  { id: id(), date: "2026-10-02", time: "10:00-12:00", title: "What's a PhD?", location: "Online", type: "core" },
   { id: id(), date: "2026-10-03", time: "13:00-15:00", title: "Welcome to RHUL Lunch", location: "RHUL StoryFutures", type: "core" },
   
   // AI BOOTCAMP
   { id: id(), date: "2026-10-06", time: "9:45-15:30", title: "AI Bootcamp", location: "Surrey 03AA01", type: "ai" },
   { id: id(), date: "2026-10-07", time: "9:45-15:30", title: "AI Bootcamp", location: "Surrey 03AA01", type: "ai" },
-  { id: id(), date: "2026-10-08", time: "9:00-10:00", title: "PhD Research with Adrian", location: "35BA00 / Online", type: "core" },
-  { id: id(), date: "2026-10-08", time: "13:00-15:30", title: "AI Bootcamp", location: "Surrey 03AA01", type: "ai" },
-  { id: id(), date: "2026-10-09", time: "9:45-15:30", title: "AI Bootcamp", location: "Surrey 03AA01", type: "ai" },
-  { id: id(), date: "2026-10-10", time: "9:45-15:30", title: "AI Bootcamp", location: "Surrey 03AA01", type: "ai" },
+  { id: id(), date: "2026-10-08", time: "9:45-15:30", title: "AI Bootcamp", location: "35BA00 / Online", type: "core" },
+ 
 
   // OCT Mid
   { id: id(), date: "2026-10-14", time: "10:00-13:00", title: "Inclusive Creative Practice", location: "RHUL Lamar Lab", type: "inclusion" },
