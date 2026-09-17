@@ -1,7 +1,10 @@
-import { CalendarEvent } from './types';
+import { CalendarEvent, EventType } from './types';
 
 export const HOLIDAYS: Record<string, string> = {
+  // Winter vacation at RHUL & Surrey begins Thu 24 Dec 2026 (per Sem 1 training plan)
+  '2026-12-24': 'Winter Vacation',
   '2026-12-25': 'Christmas Day', '2026-12-26': 'Boxing Day',
+  '2026-12-28': 'Boxing Day (substitute day)',
   '2026-12-29': 'Uni Closure', '2026-12-30': 'Uni Closure', '2026-12-31': 'Uni Closure',
   '2027-01-01': 'New Year’s Day', '2027-01-02': 'VC Day',
   '2027-04-02': 'Uni Closure', '2027-04-03': 'Good Friday', '2027-04-06': 'Easter Monday',
@@ -21,89 +24,83 @@ export const HOLIDAYS: Record<string, string> = {
 const id = () => Math.random().toString(36).substr(2, 9);
 
 export const INITIAL_EVENTS: CalendarEvent[] = [
-  // OCT 2026 - Induction Week
-  { id: id(), date: "2026-10-01", time: "9:45-17:30", title: "CDT Induction Day 1", location: "Surrey 21BA02", type: "core" },
-  { id: id(), date: "2026-10-02", time: "10:30-12:00", title: "RHUL Doctoral School Induction", location: "RHUL Davison 104", type: "core" },
-  { id: id(), date: "2026-10-02", time: "10:00-13:00", title: "Surrey Registration", location: "Hive & 23BA02", type: "core" },
-  { id: id(), date: "2026-10-02", time: "10:00-12:00", title: "What's a PhD?", location: "Online", type: "core" },
-  { id: id(), date: "2026-10-03", time: "13:00-15:00", title: "Welcome to RHUL Lunch", location: "RHUL StoryFutures", type: "core" },
-  
-  // AI BOOTCAMP
-  { id: id(), date: "2026-10-06", time: "9:45-15:30", title: "AI Bootcamp", location: "Surrey 03AA01", type: "ai" },
-  { id: id(), date: "2026-10-07", time: "9:45-15:30", title: "AI Bootcamp", location: "Surrey 03AA01", type: "ai" },
-  { id: id(), date: "2026-10-08", time: "9:45-15:30", title: "AI Bootcamp", location: "35BA00 / Online", type: "core" },
- 
+  // ============================================================
+  // SEMESTER 1 — from "CDT Cohort 3 Training Plan" (Sem 1 sheet)
+  // ============================================================
 
-  // OCT Mid
-  { id: id(), date: "2026-10-14", time: "10:00-13:00", title: "Inclusive Creative Practice", location: "RHUL Lamar Lab", type: "inclusion" },
-  { id: id(), date: "2026-10-14", time: "13:00-14:30", title: "Supervisors Networking Lunch", location: "RHUL", type: "core" },
-  
-  { id: id(), date: "2026-10-15", time: "10:00-16:00", title: "Open Inclusion (in person)", location: "Surrey 21BA02", type: "inclusion" },
-  
-  { id: id(), date: "2026-10-16", time: "13:00-14:30", title: "Supervisors Networking Lunch", location: "Surrey", type: "core" },
-  { id: id(), date: "2026-10-16", time: "09:30-12:00", title: "AI Bootcamp++", location: "Surrey 21BA02", type: "ai", mandatory: true },
-  
-  // OCT Late
-  { id: id(), date: "2026-10-20", time: "10:00-12:30", title: "Welcome to your Doctorate", location: "Surrey", type: "core" },
-  
-  { id: id(), date: "2026-10-21", time: "10:00-13:00", title: "Inclusive Creative Practice", location: "RHUL Lamar Lab", type: "inclusion" },
-  { id: id(), date: "2026-10-21", time: "14:00-15:30", title: "Introduction to Miro", location: "RHUL Lamar Lab", type: "core" },
-  
-  { id: id(), date: "2026-10-22", time: "09:00-10:00", title: "Individual PhD Research with Adrian", location: "Surrey 21BA02", type: "core" },
-  { id: id(), date: "2026-10-22", time: "10:00-13:00", title: "What's a PhD with Cohort 1", location: "Surrey 21BA02", type: "core" },
-  { id: id(), date: "2026-10-22", time: "14:00-16:00", title: "Doctoral College Induction (Surrey Researchers)", location: "Surrey", type: "core" },
+  // --- Induction Week 1 (w/c 28 Sep 2026) ---
+  { id: id(), date: "2026-10-01", time: "10:00-16:00", title: "CDT Induction Day 1", location: "Surrey 21BA02", type: "core" },
+  { id: id(), date: "2026-10-02", time: "10:00-12:00", title: "Induction Day 2 – What's a PhD?", location: "RHUL Windsor Building 0-04", type: "core" },
+  { id: id(), date: "2026-10-02", time: "12:00-13:00", title: "Induction Lunch", location: "RHUL Shilling Level 2 Foyer", type: "core" },
+  { id: id(), date: "2026-10-02", time: "13:00-14:00", title: "RHUL Tour", location: "RHUL", type: "core" },
 
-  { id: id(), date: "2026-10-23", time: "13:00-16:00", title: "FEPS PGR Induction (Surrey Researchers)", location: "Surrey", type: "core" },
-  { id: id(), date: "2026-10-23", time: "10:00-12:00", title: "AI Bootcamp++", location: "Surrey 21BA02", type: "ai", mandatory: true },
+  // --- Induction Week 2 / AI Bootcamp (w/c 5 Oct 2026) ---
+  { id: id(), date: "2026-10-05", time: "", title: "Individual research – laptop setup with IT (optional)", location: "-", type: "research" },
+  { id: id(), date: "2026-10-06", time: "10:00-15:30", title: "AI Bootcamp Day 1", location: "Surrey 35BA00", type: "ai" },
+  { id: id(), date: "2026-10-07", time: "10:00-15:30", title: "AI Bootcamp Day 2", location: "Surrey 35BA00", type: "ai" },
+  { id: id(), date: "2026-10-08", time: "10:00-15:30", title: "AI Bootcamp Day 3", location: "Surrey 35BA00", type: "ai" },
 
-  { id: id(), date: "2026-10-28", time: "10:00-13:00", title: "Inclusive Creative Practice", location: "RHUL Lamar Lab", type: "inclusion" },
-  
-  { id: id(), date: "2026-10-29", time: "09:00-11:00", title: "CVSSP & PAI Induction", location: "Surrey 21BA02", type: "core" },
-  { id: id(), date: "2026-10-29", time: "11:30-16:00", title: "Team Activity", location: "Surrey 21BA02", type: "core" },
+  // --- Week 3 (w/c 12 Oct 2026) ---
+  { id: id(), date: "2026-10-13", time: "10:00-13:00", title: "Creative Practice – Introduction to Miro", location: "RHUL Arts External Seminar Room", type: "inclusion" },
+  { id: id(), date: "2026-10-13", time: "13:00-14:00", title: "Lunch (provided)", location: "RHUL", type: "core" },
+  { id: id(), date: "2026-10-13", time: "14:00-16:00", title: "Supervisors Networking Event", location: "RHUL (room TBC)", type: "core" },
+  { id: id(), date: "2026-10-14", time: "10:00-15:00", title: "Inclusive Research Session 1", location: "Surrey 35BA00", type: "inclusion" },
+  { id: id(), date: "2026-10-15", time: "10:00-13:00", title: "AI Bootcamp++", location: "Surrey 35BA00", type: "ai", mandatory: true },
+  { id: id(), date: "2026-10-15", time: "13:00-14:00", title: "Lunch (to book)", location: "Surrey", type: "core" },
+  { id: id(), date: "2026-10-15", time: "14:00-16:00", title: "Supervisors Networking Event", location: "Surrey 21BA02 & 35BA00", type: "core" },
 
-  { id: id(), date: "2026-10-30", time: "12:00-13:00", title: "AI Surgery (optional)", location: "Surrey 21BA02", type: "ai" },
-  { id: id(), date: "2026-10-30", time: "14:00-16:00", title: "What’s a PhD? Research Methods - Quants", location: "Surrey 21BA02", type: "core" },
+  // --- Week 4 (w/c 19 Oct 2026) ---
+  { id: id(), date: "2026-10-20", time: "10:00-13:00", title: "Creative Practice – Sprint Process", location: "RHUL Arts External Seminar Room", type: "inclusion" },
+  { id: id(), date: "2026-10-21", time: "10:00-13:00", title: "Inclusive Research Session 2", location: "Surrey 35BA00", type: "inclusion" },
+  { id: id(), date: "2026-10-21", time: "13:00-15:30", title: "Lunch + Researcher Development (good practice with Cohorts 1 & 2)", location: "Surrey", type: "core" },
+  { id: id(), date: "2026-10-22", time: "10:00-13:00", title: "AI Bootcamp++", location: "Surrey 35BA00", type: "ai", mandatory: true },
+  { id: id(), date: "2026-10-22", time: "14:00-16:00", title: "Researcher Development – PAI Induction (TBC) or Internal Seminar", location: "Surrey 35BA02", type: "core" },
 
-  // NOV
-  { id: id(), date: "2026-11-04", time: "14:00-15:00", title: "Drop-in with Open Inclusion", location: "Online", type: "inclusion" },
+  // --- Week 5 (w/c 26 Oct 2026) ---
+  { id: id(), date: "2026-10-27", time: "10:00-13:00", title: "Creative Practice – Serious Games", location: "RHUL Arts External Seminar Room", type: "inclusion" },
+  { id: id(), date: "2026-10-28", time: "10:00-16:00", title: "Open Inclusion", location: "Surrey 35BA00 or 21BA02", type: "inclusion" },
+  { id: id(), date: "2026-10-29", time: "10:00-13:00", title: "AI Bootcamp++", location: "Surrey 35BA00", type: "ai", mandatory: true },
+  { id: id(), date: "2026-10-29", time: "14:00-16:00", title: "Researcher Development – Research Methods (Quantitative)", location: "Surrey 35BA00", type: "core" },
 
-  { id: id(), date: "2026-11-05", time: "", title: "Individual PhD Research with Adrian", location: "21BA02 or online", type: "core" },
-  { id: id(), date: "2026-11-05", time: "10:00-13:30", title: "Open Inclusion Session", location: "Online", type: "inclusion" },
+  // --- Week 6 (w/c 2 Nov 2026) ---
+  { id: id(), date: "2026-11-03", time: "10:00-13:00", title: "Creative Practice – Who is it for? Rethinking audience and user research", location: "RHUL Arts External Seminar Room", type: "inclusion" },
+  { id: id(), date: "2026-11-04", time: "10:00-13:00", title: "Inclusive Research Session 3", location: "Surrey 35BA00", type: "inclusion" },
+  { id: id(), date: "2026-11-04", time: "14:00-16:00", title: "Researcher Development – Cohort Building", location: "Surrey 35BA00", type: "core" },
+  { id: id(), date: "2026-11-05", time: "10:00-13:00", title: "AI Bootcamp++", location: "Surrey 35BA00", type: "ai", mandatory: true },
+  { id: id(), date: "2026-11-05", time: "14:00-16:00", title: "Researcher Development – Research Methods (Qualitative & Mixed)", location: "Surrey 35BA00", type: "core" },
 
-  { id: id(), date: "2026-11-06", time: "10:00-12:00", title: "AI Bootcamp++", location: "Surrey 35BA00", type: "ai", mandatory: true },
-  { id: id(), date: "2026-11-06", time: "14:00-16:00", title: "Mini Challenge prep", location: "Surrey 21BA02", type: "core" },
+  // --- Week 7 (w/c 9 Nov 2026) ---
+  { id: id(), date: "2026-11-10", time: "10:00-13:00", title: "Creative Practice – Working with Audiences", location: "RHUL Arts External Seminar Room", type: "inclusion" },
+  { id: id(), date: "2026-11-11", time: "All Day", title: "CDT Conference / IAB", location: "Surrey", type: "core" },
+  { id: id(), date: "2026-11-12", time: "10:00-13:00", title: "AI Bootcamp++", location: "Surrey 35BA00", type: "ai", mandatory: true },
+  { id: id(), date: "2026-11-12", time: "14:00-16:00", title: "Researcher Development – Presentation Skills", location: "Surrey 35BA00", type: "core" },
 
-  { id: id(), date: "2026-11-11", time: "10:00-13:00", title: "Inclusive Creative Practice", location: "RHUL Lamar Lab", type: "inclusion" },
-  { id: id(), date: "2026-11-11", time: "14:00-15:00", title: "Open Inclusion Drop in", location: "Online", type: "inclusion" },
+  // --- Mini Challenge Week 1 (w/c 16 Nov 2026) ---
+  { id: id(), date: "2026-11-17", time: "All Day", title: "Mini Challenge – Hackathon Session", location: "Surrey 21BA02 (TBC 02IFH01)", type: "challenge" },
+  { id: id(), date: "2026-11-18", time: "10:00-16:00", title: "Mini Challenge – Hackathon Prep", location: "TBC", type: "challenge" },
+  { id: id(), date: "2026-11-19", time: "10:00-16:00", title: "Mini Challenge – Hackathon Prep", location: "TBC", type: "challenge" },
+  { id: id(), date: "2026-11-20", time: "All Day", title: "Mini Challenge – Google Event kick-off", location: "TBC", type: "challenge" },
 
-  { id: id(), date: "2026-11-12", time: "10:00-13:30", title: "Open Inclusion Sessions", location: "Online", type: "inclusion" },
+  // (Mini Challenge Week 2, 23–27 Nov, is generated by addRange below)
 
-  { id: id(), date: "2026-11-13", time: "10:00-12:00", title: "AI Bootcamp++", location: "Surrey 21BA02", type: "ai", mandatory: true },
-  { id: id(), date: "2026-11-13", time: "12:00-13:00", title: "AI Surgery (optional)", location: "Surrey 21BA02", type: "ai" },
-  { id: id(), date: "2026-11-13", time: "14:00-16:00", title: "What’s a PhD? Research Methods – Qual", location: "Surrey 21BA02", type: "core" },
+  // --- Week 10 (w/c 30 Nov 2026) ---
+  { id: id(), date: "2026-12-01", time: "10:00-14:00", title: "Creative Practice – Creative Bootcamp", location: "RHUL", type: "inclusion" },
+  { id: id(), date: "2026-12-02", time: "10:00-13:00", title: "Inclusive Research Session 4", location: "Surrey 35BA00", type: "inclusion" },
+  { id: id(), date: "2026-12-02", time: "14:00-15:00", title: "Guest Lecture", location: "Surrey", type: "core" },
+  { id: id(), date: "2026-12-03", time: "10:00-15:30", title: "Ethics Bootcamp – Ethics Foundations", location: "Surrey 35BA00", type: "ethics" },
 
-  // DEC
-  { id: id(), date: "2026-12-02", time: "10:00-13:00", title: "Inclusive Creative Practice", location: "RHUL Lamar Lab", type: "inclusion" },
-  { id: id(), date: "2026-12-02", time: "14:00-15:00", title: "Open Inclusion Drop in", location: "Online", type: "inclusion" },
-
-  { id: id(), date: "2026-12-03", time: "All Day", title: "CVMP (optional)", location: "TBD", type: "core" },
-  { id: id(), date: "2026-12-04", time: "All Day", title: "CVMP (optional)", location: "TBD", type: "core" },
+  // --- Week 11 (w/c 7 Dec 2026) ---
   { id: id(), date: "2026-12-05", time: "16:00-17:00", title: "Open Inclusion Assessment 1 deadline", location: "-", type: "inclusion" },
+  { id: id(), date: "2026-12-08", time: "All Day", title: "CVMP, London (optional – attendance TBC)", location: "London", type: "core" },
+  { id: id(), date: "2026-12-09", time: "All Day", title: "CVMP, London (optional – attendance TBC)", location: "London", type: "core" },
+  { id: id(), date: "2026-12-10", time: "10:00-15:30", title: "Ethics Bootcamp – Ethics Session for all cohorts", location: "Surrey 35BA00", type: "ethics" },
 
-  { id: id(), date: "2026-12-09", time: "10:00-13:00", title: "Inclusive Creative Practice", location: "RHUL Lamar Lab", type: "inclusion" },
-  { id: id(), date: "2026-12-09", time: "14:00-15:00", title: "Open Inclusion Drop in", location: "Online", type: "inclusion" },
+  // --- Week 12 (w/c 14 Dec 2026) ---
+  { id: id(), date: "2026-12-14", time: "10:00-13:00", title: "Creative Practice – VP Workshop", location: "RHUL Futures Studio", type: "inclusion" },
 
-  { id: id(), date: "2026-12-10", time: "10:00-13:30", title: "Open Inclusion Session", location: "Online", type: "inclusion" },
+  // Winter vacation at RHUL & Surrey begins 24 Dec 2026 (see HOLIDAYS above)
 
-  { id: id(), date: "2026-12-11", time: "11:00-12:00", title: "External Seminar", location: "Surrey 21BA02", type: "core" },
-  { id: id(), date: "2026-12-11", time: "13:30-14:30", title: "Practice-based PhD (optional)", location: "Online", type: "core" },
-  { id: id(), date: "2026-12-11", time: "15:00-16:00", title: "What's a PhD?", location: "Online", type: "core" },
-  
-  { id: id(), date: "2026-12-16", time: "14:00-15:00", title: "Open Inclusion Drop in", location: "Online", type: "inclusion" },
-
-  { id: id(), date: "2026-12-17", time: "10:00-13:30", title: "Open Inclusion Session", location: "Online", type: "inclusion" },
-
-// ------------- 2027 -----------------
+// ------------- 2027 (unchanged – not covered by the Sem 1 sheet) -----------------
   { id: id(), date: "2027-01-08", time: "15:00-16:00", title: "Open Inclusion Drop in", location: "Online", type: "inclusion" },
   { id: id(), date: "2027-01-13", time: "11:00-11:45", title: "Mini Challenge Feedback -- Creative Equity", location: "Online", type: "core" },
   { id: id(), date: "2027-01-13", time: "12:00-12:45", title: "Mini Challenge Feedback -- Learning Difference Adaptation", location: "Online", type: "core" },
@@ -140,7 +137,13 @@ export const INITIAL_EVENTS: CalendarEvent[] = [
 ];
 
 // Helper to fill in ranges (Mini Challenge, etc)
-const addRange = (start: string, end: string, title: string, type: 'core' | 'challenge') => {
+const addRange = (
+  start: string,
+  end: string,
+  title: string,
+  type: EventType,
+  location: string = 'Various'
+) => {
     let curr = new Date(start);
     const stop = new Date(end);
     while (curr <= stop) {
@@ -153,7 +156,7 @@ const addRange = (start: string, end: string, title: string, type: 'core' | 'cha
                      id: id(),
                      date: iso,
                      title: title,
-                     location: 'Various',
+                     location: location,
                      type: type,
                      time: 'All Day'
                  });
@@ -163,5 +166,28 @@ const addRange = (start: string, end: string, title: string, type: 'core' | 'cha
     }
 };
 
-addRange('2026-11-17', '2026-11-28', 'Mini Challenge', 'challenge');
+addRange('2026-11-23', '2026-11-27', 'Mini Challenge Hackathon', 'challenge', 'RHUL Futures Studio & Shilling Meeting Rooms');
 addRange('2027-04-21', '2027-05-28', 'Main Challenge', 'challenge');
+
+// Individual research days from the Semester 1 training plan.
+// Rendered in grey via the 'research' event type.
+const RESEARCH_DAYS = [
+  '2026-10-09', '2026-10-12', '2026-10-16', '2026-10-19', '2026-10-23', '2026-10-26', '2026-10-30',
+  '2026-11-02', '2026-11-06', '2026-11-09', '2026-11-13', '2026-11-16', '2026-11-30',
+  '2026-12-04', '2026-12-07', '2026-12-11',
+  '2026-12-15', '2026-12-16', '2026-12-17', '2026-12-18',
+  '2026-12-21', '2026-12-22', '2026-12-23',
+];
+
+RESEARCH_DAYS.forEach((date) => {
+  if (!INITIAL_EVENTS.find((e) => e.date === date)) {
+    INITIAL_EVENTS.push({
+      id: id(),
+      date,
+      time: '',
+      title: 'Individual research',
+      location: '-',
+      type: 'research',
+    });
+  }
+});
