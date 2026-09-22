@@ -23,6 +23,16 @@
     <!-- <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/2666/2666505.png" /> -->
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Enable class-based dark mode, and apply the saved theme before first paint (light by default)
+        tailwind.config = { darkMode: 'class' };
+        try {
+            if (localStorage.getItem('theme') === 'dark') {
+                document.documentElement.classList.add('dark');
+                document.documentElement.style.colorScheme = 'dark';
+            }
+        } catch (e) {}
+    </script>
     <style>
         /* Custom scrollbar hiding for filter bar */
         .scrollbar-hide::-webkit-scrollbar {
@@ -35,6 +45,10 @@
         /* Disable pull-to-refresh on mobile for app-like feel */
         body {
             overscroll-behavior-y: none;
+            background-color: #f8f9fa;
+        }
+        html.dark body {
+            background-color: #020617; /* slate-950 */
         }
     </style>
   <script type="importmap">
