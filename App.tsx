@@ -82,7 +82,7 @@ const App: React.FC = () => {
                 <div className="h-12 w-1.5 bg-[#D4AF37] rounded-full hidden sm:block"></div>
                 <div>
                     <h1 className="text-xl lg:text-2xl font-extrabold text-[#003366] dark:text-slate-50 uppercase tracking-tight leading-none">
-                        CDT Year Planner
+                        CDT Cohort 3 Year Planner
                     </h1>
                     <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-slate-400 font-medium mt-1">
                         <span className="bg-[#003366] text-white dark:bg-[#D4AF37] dark:text-slate-900 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase">26/27</span>
