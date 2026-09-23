@@ -13,6 +13,7 @@ import {
     LayoutGrid,
     List,
     Crosshair,
+    Info,
     Calendar as CalendarIcon
 } from 'lucide-react';
 
@@ -23,6 +24,10 @@ const addDays = (dateStr: string, n: number) => {
   return d.toISOString().slice(0, 10);
 };
 
+// The calendar currently runs to the end of Semester 1 only.
+const CALENDAR_END = '2026-12-31';
+const EVENTS_IN_RANGE = INITIAL_EVENTS.filter(e => e.date <= CALENDAR_END);
+
 const App: React.FC = () => {
   const [view, setView] = useState<'calendar' | 'agenda'>('calendar');
   const [selectedEvent, setSelectedEvent] = useState<CalendarEvent | null>(null);
@@ -32,7 +37,7 @@ const App: React.FC = () => {
 
   // Filter Logic
   const filteredEvents = useMemo(() => {
-    return INITIAL_EVENTS.filter(e => {
+    return EVENTS_IN_RANGE.filter(e => {
       const matchesSearch = e.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                             e.location.toLowerCase().includes(searchTerm.toLowerCase());
       const matchesType = filterType === 'all' || e.type === filterType;
@@ -43,7 +48,7 @@ const App: React.FC = () => {
   const weeks = useMemo(() => {
     // We pass filteredEvents to generate the grid.
     // Note: This hides the event from the grid but keeps the date cell.
-    return generateAcademicYear('2026-09-29', '2028-01-01', filteredEvents);
+    return generateAcademicYear('2026-09-29', CALENDAR_END, filteredEvents);
   }, [filteredEvents]);
 
   // Scroll to today (or the next day shown if today isn't on the calendar, e.g. a weekend)
@@ -68,7 +73,7 @@ const App: React.FC = () => {
         <div className="max-w-[1600px] mx-auto px-4 lg:px-8 py-3">
 
           {/* Live clock + next event countdown */}
-          <LiveBar events={INITIAL_EVENTS} onEventClick={setSelectedEvent} />
+          <LiveBar events={EVENTS_IN_RANGE} onEventClick={setSelectedEvent} />
 
           <div className="flex flex-col lg:flex-row justify-between items-center gap-4">
 
@@ -162,7 +167,15 @@ const App: React.FC = () => {
       {/* Main Content */}
       <main className="max-w-[1600px] mx-auto px-4 lg:px-8 py-8">
 
-        {view === 'agenda' && <AgendaView weeks={weeks} todayStr={todayStr} onEventClick={setSelectedEvent} />}
+        {view === 'agenda' && (
+            <>
+                <AgendaView weeks={weeks} todayStr={todayStr} onEventClick={setSelectedEvent} />
+                <div className="flex items-center justify-center gap-2 p-4 -mt-12 mb-8 rounded-lg border border-dashed border-gray-300 dark:border-slate-700 bg-gray-50 dark:bg-slate-900/60 text-sm text-gray-500 dark:text-slate-400 italic font-medium text-center">
+                    <Info size={16} className="text-[#a8861a] dark:text-[#D4AF37] shrink-0" />
+                    Semester 2 schedule will be added in due course
+                </div>
+            </>
+        )}
 
         {view === 'calendar' && (
             <div className="bg-white dark:bg-slate-900 rounded-lg shadow-sm border border-gray-200 dark:border-slate-800 overflow-hidden hidden lg:block">
@@ -246,8 +259,9 @@ const App: React.FC = () => {
                     )})}
                     {/* Final Row */}
                     <div className="grid grid-cols-[80px_repeat(5,1fr)] bg-gray-50 dark:bg-slate-900/60 min-h-[60px]">
-                        <div className="col-span-6 flex items-center justify-center p-4 text-sm text-gray-400 dark:text-slate-500 italic font-medium">
-                             Summer Period (Jun 2027 - Sep 2027) — Focus on Individual PhD Research
+                        <div className="col-span-6 flex items-center justify-center gap-2 p-4 text-sm text-gray-500 dark:text-slate-400 italic font-medium">
+                            <Info size={16} className="text-[#a8861a] dark:text-[#D4AF37] shrink-0" />
+                            Semester 2 schedule will be added in due course
                         </div>
                     </div>
                 </div>
