@@ -31,7 +31,7 @@ export const INITIAL_EVENTS: CalendarEvent[] = [
   // --- Induction Week 1 (w/c 28 Sep 2026) ---
   { id: id(), date: "2026-10-01", time: "10:00-16:00", title: "CDT Induction Day 1", location: "Surrey 21BA02", type: "core" },
   { id: id(), date: "2026-10-02", time: "10:00-12:00", title: "Induction Day 2 – What's a PhD?", location: "RHUL Windsor Building 0-04", type: "core" },
-  { id: id(), date: "2026-10-02", time: "12:00-13:00", title: "Induction Lunch", location: "RHUL Shilling Level 2 Foyer", type: "core" },
+  { id: id(), date: "2026-10-02", time: "12:00-13:00", title: "Induction Lunch (provided)", location: "RHUL Shilling Level 2 Foyer", type: "core" },
   { id: id(), date: "2026-10-02", time: "13:00-14:00", title: "RHUL Tour", location: "RHUL", type: "core" },
 
   // --- Induction Week 2 / AI Bootcamp (w/c 5 Oct 2026) ---
@@ -55,15 +55,16 @@ export const INITIAL_EVENTS: CalendarEvent[] = [
   { id: id(), date: "2026-10-21", time: "10:00-13:00", title: "Inclusive Research Session 2", location: "Surrey 35BA00", type: "inclusion" },
    { id: id(), date: "2026-10-21", time: "14:00-16:00", title: "Doctoral College PGR Induction for Surrey-based researchers only", location: "Surrey", type: "core" },
   { id: id(), date: "2026-10-22", time: "10:00-13:00", title: "AI Bootcamp++", location: "Surrey 35BA00", type: "ai", mandatory: true },
-  { id: id(), date: "2026-10-22", time: "13:00-14:30", title: "Lunch (provided) + Researcher Development", location: "Surrey", type: "development" },
+  { id: id(), date: "2026-10-22", time: "13:00-14:30", title: "Lunch (provided) + Researcher Development", location: "Surrey", type: "core" },
   { id: id(), date: "2026-10-22", time: "14:30-15:30", title: "Internal Seminar", location: "Surrey 21BA02", type: "development" },
  { id: id(), date: "2026-10-23", time: "11:00-16:30", title: "Researcher Development", location: "RHUL", type: "development" },
   
   // --- Week 5 (w/c 26 Oct 2026) ---
   { id: id(), date: "2026-10-27", time: "10:00-13:00", title: "Creative Practice – Serious Games", location: "RHUL Arts External Seminar Room", type: "creative" },
   { id: id(), date: "2026-10-28", time: "10:00-16:00", title: "Open Inclusion", location: "Surrey 35BA00 or 21BA02", type: "inclusion" },
+  { id: id(), date: "2026-10-28", time: "13:00-14:00", title: "Lunch (provided)", location: "Surrey", type: "core" },
   { id: id(), date: "2026-10-29", time: "10:00-13:00", title: "AI Bootcamp++", location: "Surrey 35BA00", type: "ai", mandatory: true },
-  { id: id(), date: "2026-10-29", time: "14:00-16:00", title: "Researcher Development – Research Methods (Quantitative)", location: "Surrey 35BA00", type: "development" },
+  { id: id(), date: "2026-10-29", time: "14:00-16:00", title: "PAI & CVSSP Induction", location: "Surrey 35BA00", type: "development" },
 
   // --- Week 6 (w/c 2 Nov 2026) ---
   { id: id(), date: "2026-11-03", time: "10:00-13:00", title: "Creative Practice – Who is it for? Rethinking audience and user research", location: "RHUL Arts External Seminar Room", type: "creative" },
