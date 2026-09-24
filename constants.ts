@@ -39,6 +39,7 @@ export const INITIAL_EVENTS: CalendarEvent[] = [
   { id: id(), date: "2026-10-06", time: "10:00-15:30", title: "AI Bootcamp Day 1", location: "Surrey 35BA00", type: "ai" },
   { id: id(), date: "2026-10-07", time: "10:00-15:30", title: "AI Bootcamp Day 2", location: "Surrey 35BA00", type: "ai" },
   { id: id(), date: "2026-10-08", time: "10:00-15:30", title: "AI Bootcamp Day 3", location: "Surrey 35BA00", type: "ai" },
+  { id: id(), date: "2026-10-08", time: "12:00-13:00", title: "Lunch (provided)", location: "Surrey", type: "core" },
 
   // --- Week 3 (w/c 12 Oct 2026) ---
   { id: id(), date: "2026-10-13", time: "10:00-13:00", title: "Creative Practice – Introduction to Miro", location: "RHUL Arts External Seminar Room", type: "creative" },
@@ -46,16 +47,18 @@ export const INITIAL_EVENTS: CalendarEvent[] = [
   { id: id(), date: "2026-10-13", time: "14:00-16:00", title: "Supervisors Networking Event", location: "RHUL (room TBC)", type: "core" },
   { id: id(), date: "2026-10-14", time: "10:00-15:00", title: "Inclusive Research Session 1", location: "Surrey 35BA00", type: "inclusion" },
   { id: id(), date: "2026-10-15", time: "10:00-13:00", title: "AI Bootcamp++", location: "Surrey 35BA00", type: "ai", mandatory: true },
-  { id: id(), date: "2026-10-15", time: "13:00-14:00", title: "Lunch (to book)", location: "Surrey", type: "core" },
+  { id: id(), date: "2026-10-15", time: "13:00-14:00", title: "Lunch (provided)", location: "Surrey", type: "core" },
   { id: id(), date: "2026-10-15", time: "14:00-16:00", title: "Supervisors Networking Event", location: "Surrey 21BA02 & 35BA00", type: "core" },
 
   // --- Week 4 (w/c 19 Oct 2026) ---
   { id: id(), date: "2026-10-20", time: "10:00-13:00", title: "Creative Practice – Sprint Process", location: "RHUL Arts External Seminar Room", type: "creative" },
   { id: id(), date: "2026-10-21", time: "10:00-13:00", title: "Inclusive Research Session 2", location: "Surrey 35BA00", type: "inclusion" },
-  { id: id(), date: "2026-10-21", time: "13:00-15:30", title: "Lunch + Researcher Development (good practice with Cohorts 1 & 2)", location: "Surrey", type: "development" },
+   { id: id(), date: "2026-10-21", time: "14:00-16:00", title: "Doctoral College PGR Induction for Surrey-based researchers only", location: "Surrey", type: "core" },
   { id: id(), date: "2026-10-22", time: "10:00-13:00", title: "AI Bootcamp++", location: "Surrey 35BA00", type: "ai", mandatory: true },
-  { id: id(), date: "2026-10-22", time: "14:00-16:00", title: "Researcher Development – PAI Induction (TBC) or Internal Seminar", location: "Surrey 35BA02", type: "development" },
-
+  { id: id(), date: "2026-10-22", time: "13:00-14:30", title: "Lunch (provided) + Researcher Development", location: "Surrey", type: "development" },
+  { id: id(), date: "2026-10-22", time: "14:30-15:30", title: "Internal Seminar", location: "Surrey 21BA02", type: "development" },
+ { id: id(), date: "2026-10-23", time: "11:00-16:30", title: "Researcher Development", location: "RHUL", type: "development" },
+  
   // --- Week 5 (w/c 26 Oct 2026) ---
   { id: id(), date: "2026-10-27", time: "10:00-13:00", title: "Creative Practice – Serious Games", location: "RHUL Arts External Seminar Room", type: "creative" },
   { id: id(), date: "2026-10-28", time: "10:00-16:00", title: "Open Inclusion", location: "Surrey 35BA00 or 21BA02", type: "inclusion" },
