@@ -37,6 +37,7 @@ export const INITIAL_EVENTS: CalendarEvent[] = [
   // --- Induction Week 2 / AI Bootcamp (w/c 5 Oct 2026) ---
   { id: id(), date: "2026-10-05", time: "", title: "Individual research", location: "-", type: "research" },
   { id: id(), date: "2026-10-06", time: "10:00-15:30", title: "AI Bootcamp Day 1", location: "Surrey 35BA00", type: "ai" },
+  { id: id(), date: "2026-10-07", time: "10:00-11:00", title: "Researcher Development with prof Adrian Hilton", location: "Surrey 35BA00", type: "development" },
   { id: id(), date: "2026-10-07", time: "11:15-16:30", title: "AI Bootcamp Day 2", location: "Surrey 35BA00", type: "ai" },
   { id: id(), date: "2026-10-08", time: "10:00-15:30", title: "AI Bootcamp Day 3", location: "Surrey 35BA00", type: "ai" },
   { id: id(), date: "2026-10-08", time: "12:00-13:00", title: "Lunch (provided)", location: "Surrey", type: "core" },
