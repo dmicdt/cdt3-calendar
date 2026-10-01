@@ -16,7 +16,7 @@ const icsFeed = (): Plugin => ({
     this.emitFile({
       type: 'asset',
       fileName: FEED_FILENAME,
-      source: buildICS(events, { stamp: new Date() }),
+      source: buildICS(events),
     });
     console.log(`\n  ✓ calendar feed: ${FEED_FILENAME} (${events.length} events)\n`);
   },

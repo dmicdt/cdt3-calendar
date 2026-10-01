@@ -74,14 +74,18 @@ const addOneDay = (dateStr: string): string => {
 export interface BuildICSOptions {
   /** Shown as the calendar's name once subscribed. */
   name?: string;
-  /** DTSTAMP for every event. Pass a fixed date for reproducible builds. */
+  /**
+   * DTSTAMP for every event. Defaults to today at 00:00 UTC rather than the exact
+   * build time, so rebuilding without changing anything produces a byte-identical
+   * feed and subscribers see no churn.
+   */
   stamp?: Date;
   /** Advertise a refresh interval + name. Off for a one-off download. */
   subscribable?: boolean;
 }
 
 export const buildICS = (events: CalendarEvent[], opts: BuildICSOptions = {}): string => {
-  const { name = CALENDAR_NAME, stamp = new Date(), subscribable = true } = opts;
+  const { name = CALENDAR_NAME, stamp = new Date(`${new Date().toISOString().slice(0, 10)}T00:00:00Z`), subscribable = true } = opts;
   const dtstamp = utcStamp(stamp);
 
   const lines: string[] = [
