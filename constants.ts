@@ -34,8 +34,6 @@ export const INITIAL_EVENTS: CalendarEvent[] = [
   // SEMESTER 1 — from "CDT Cohort 3 Training Plan" (Sem 1 sheet)
   // ============================================================
 
-  { id: id(), date: "2026-12-09", time: "14:00-15:00", title: "ZZZ TEST EVENT", location: "Nowhere", type: "core" },
-
   // --- Induction Week 1 (w/c 28 Sep 2026) ---
   { id: id(), date: "2026-10-01", time: "09:45-16:30", title: "CDT Induction Day 1", location: "Surrey 21BA02", type: "core" },
   { id: id(), date: "2026-10-01", time: "12:45-13:45", title: "Induction Lunch (provided)", location: "Surrey 35BA00", type: "core" },
