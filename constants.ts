@@ -37,7 +37,8 @@ export const INITIAL_EVENTS: CalendarEvent[] = [
 
   // --- Induction Week 2 / AI Bootcamp (w/c 5 Oct 2026) ---
   { id: id(), date: "2026-10-05", time: "", title: "Individual research", location: "-", type: "research" },
-  { id: id(), date: "2026-10-06", time: "10:00-15:30", title: "AI Bootcamp Day 1", location: "Surrey 35BA00", type: "ai" },
+  { id: id(), date: "2026-10-06", time: "10:00-12:00", title: "AI Bootcamp Day 1", location: "Surrey 23BA02", type: "ai" },
+  { id: id(), date: "2026-10-06", time: "13:00-15:30", title: "AI Bootcamp Day 1", location: "Surrey 21BA02", type: "ai" },
   { id: id(), date: "2026-10-07", time: "10:00-11:00", title: "Researcher Development with prof Adrian Hilton", location: "Surrey 35BA00", type: "development" },
   { id: id(), date: "2026-10-07", time: "11:15-16:30", title: "AI Bootcamp Day 2", location: "Surrey 35BA00", type: "ai" },
   { id: id(), date: "2026-10-08", time: "10:00-15:30", title: "AI Bootcamp Day 3", location: "Surrey 35BA00", type: "ai" },
@@ -142,7 +143,7 @@ export const INITIAL_EVENTS: CalendarEvent[] = [
   { id: id(), date: "2027-06-04", time: "13:30-14:30", title: "External Seminar with Philip McLauchlan", location: "21BA02", type: "core" },
 ];
 
-// Helper to fill in ranges (Mini Challenge, etc)
+// Helper to fill in ranges (Challenge Hackathon, etc)
 const addRange = (
   start: string,
   end: string,
@@ -172,7 +173,7 @@ const addRange = (
     }
 };
 
-addRange('2026-11-23', '2026-11-27', 'Mini Challenge Hackathon', 'challenge', 'RHUL Futures Studio & Shilling Meeting Rooms');
+addRange('2026-11-23', '2026-11-27', 'Challenge Hackathon', 'challenge', 'RHUL Futures Studio & Shilling Meeting Rooms');
 addRange('2027-04-21', '2027-05-28', 'Main Challenge', 'challenge');
 
 // Individual research days from the Semester 1 training plan.
