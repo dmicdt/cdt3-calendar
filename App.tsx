@@ -1,14 +1,15 @@
 import React, { useState, useMemo, useEffect, useCallback } from 'react';
-import { INITIAL_EVENTS } from './constants';
-import { generateAcademicYear, generateICS } from './services/dateService';
+import { INITIAL_EVENTS, CALENDAR_END } from './constants';
+import { generateAcademicYear } from './services/dateService';
 import { useLondonToday } from './services/timeService';
 import { EventModal } from './components/EventModal';
 import { AgendaView } from './components/AgendaView';
 import { LiveBar } from './components/LiveBar';
 import { ThemeToggle } from './components/ThemeToggle';
+import { SubscribeModal } from './components/SubscribeModal';
 import { CalendarEvent, EventType, EVENT_COLORS, EVENT_LABELS, FILTER_TYPES } from './types';
 import {
-    Download,
+    CalendarPlus,
     Search,
     LayoutGrid,
     List,
@@ -24,8 +25,8 @@ const addDays = (dateStr: string, n: number) => {
   return d.toISOString().slice(0, 10);
 };
 
-// The calendar currently runs to the end of Semester 1 only.
-const CALENDAR_END = '2026-12-31';
+// The calendar currently runs to the end of Semester 1 only (CALENDAR_END lives
+// in constants.ts so the build-time .ics feed uses exactly the same cut-off).
 const EVENTS_IN_RANGE = INITIAL_EVENTS.filter(e => e.date <= CALENDAR_END);
 
 const App: React.FC = () => {
@@ -33,6 +34,7 @@ const App: React.FC = () => {
   const [selectedEvent, setSelectedEvent] = useState<CalendarEvent | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [filterType, setFilterType] = useState<EventType | 'all'>('all');
+  const [showSubscribe, setShowSubscribe] = useState(false);
   const todayStr = useLondonToday();
 
   // Filter Logic
@@ -134,10 +136,10 @@ const App: React.FC = () => {
                 </button>
 
                 <button
-                    onClick={() => generateICS(filteredEvents)}
-                    className="hidden sm:flex items-center gap-2 bg-[#003366] hover:bg-[#002244] text-white dark:bg-[#D4AF37] dark:hover:bg-[#e0bd4a] dark:text-slate-900 px-4 py-2 rounded-lg text-sm font-bold transition-colors shadow-sm"
+                    onClick={() => setShowSubscribe(true)}
+                    className="flex items-center justify-center gap-2 w-full sm:w-auto bg-[#003366] hover:bg-[#002244] text-white dark:bg-[#D4AF37] dark:hover:bg-[#e0bd4a] dark:text-slate-900 px-4 py-2 rounded-lg text-sm font-bold transition-colors shadow-sm"
                 >
-                    <Download size={16} /> Export ICS
+                    <CalendarPlus size={16} /> Subscribe
                 </button>
             </div>
           </div>
@@ -281,6 +283,7 @@ const App: React.FC = () => {
       </main>
 
       <EventModal event={selectedEvent} onClose={() => setSelectedEvent(null)} />
+      {showSubscribe && <SubscribeModal events={EVENTS_IN_RANGE} onClose={() => setShowSubscribe(false)} />}
     </div>
   );
 };

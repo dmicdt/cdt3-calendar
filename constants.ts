@@ -20,6 +20,12 @@ export const HOLIDAYS: Record<string, string> = {
   '2027-12-31': 'Uni Closure',
 };
 
+/**
+ * The published calendar stops here: Semester 2 dates below are provisional and
+ * are hidden from the site, the ICS feed and the countdown until confirmed.
+ */
+export const CALENDAR_END = '2026-12-31';
+
 // Helper to generate unique IDs
 const id = () => Math.random().toString(36).substr(2, 9);
 

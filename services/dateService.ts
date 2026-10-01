@@ -1,5 +1,6 @@
 import { CalendarEvent, WeekData, EventType } from '../types';
 import { HOLIDAYS } from '../constants';
+import { buildICS } from './icsService';
 
 export const generateAcademicYear = (startDate: string, endDate: string, events: CalendarEvent[]): WeekData[] => {
   const weeks: WeekData[] = [];
@@ -49,51 +50,16 @@ export const generateAcademicYear = (startDate: string, endDate: string, events:
   return weeks;
 };
 
+/**
+ * One-off download of a .ics file. The subscribable feed is generated at build
+ * time instead — see services/icsService.ts and vite.config.ts.
+ */
 export const generateICS = (events: CalendarEvent[], fileName: string = 'cdt-calendar.ics') => {
-  let icsContent = "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//CDT Planner//EN\n";
-
-  events.forEach(event => {
-    // Basic clean up of date YYYYMMDD
-    const dateStr = event.date.replace(/-/g, '');
-    let dtStart = `DTSTART;VALUE=DATE:${dateStr}`;
-    let dtEnd = ''; 
-    let isAllDay = true;
-
-    // Check if time is specified and parseable
-    if (event.time && event.time.toLowerCase() !== 'all day') {
-        // Match HH:MM-HH:MM or HH.MM-HH.MM with optional spaces
-        // Replaces en-dashes or em-dashes with hyphen just in case
-        const normalizedTime = event.time.replace(/–/g, '-').replace(/—/g, '-');
-        const timeMatch = normalizedTime.match(/(\d{1,2})[:\.](\d{2})\s*-\s*(\d{1,2})[:\.](\d{2})/);
-
-        if (timeMatch) {
-            isAllDay = false;
-            const [_, h1, m1, h2, m2] = timeMatch;
-            
-            // Helper to pad time components
-            const pad = (n: string) => n.length === 1 ? '0' + n : n;
-
-            // Construct ISO time strings (Local time)
-            dtStart = `DTSTART:${dateStr}T${pad(h1)}${m1}00`;
-            dtEnd = `DTEND:${dateStr}T${pad(h2)}${m2}00`;
-        }
-    }
-
-    icsContent += "BEGIN:VEVENT\n";
-    icsContent += `${dtStart}\n`;
-    if (!isAllDay && dtEnd) {
-        icsContent += `${dtEnd}\n`;
-    }
-    icsContent += `SUMMARY:${event.title}\n`;
-    if (event.location) icsContent += `LOCATION:${event.location}\n`;
-    icsContent += "END:VEVENT\n";
-  });
-
-  icsContent += "END:VCALENDAR";
-  
-  const blob = new Blob([icsContent], { type: 'text/calendar' });
+  const icsContent = buildICS(events, { subscribable: false });
+  const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
   const link = document.createElement('a');
   link.href = window.URL.createObjectURL(blob);
   link.download = fileName;
   link.click();
+  window.URL.revokeObjectURL(link.href);
 };
