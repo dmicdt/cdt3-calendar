@@ -73,7 +73,7 @@ export const INITIAL_EVENTS: CalendarEvent[] = [
   { id: id(), date: "2026-10-28", time: "10:00-16:00", title: "Open Inclusion", location: "Surrey 21BA02", type: "inclusion" },
   { id: id(), date: "2026-10-28", time: "13:00-14:00", title: "Lunch (provided)", location: "Surrey", type: "core" },
   { id: id(), date: "2026-10-29", time: "10:00-13:00", title: "AI Bootcamp++", location: "Surrey 35BA00", type: "ai", mandatory: true },
-  { id: id(), date: "2026-10-29", time: "14:00-16:00", title: "PAI & CVSSP Induction", location: "Surrey 35BA00", type: "development" },
+  { id: id(), date: "2026-10-29", time: "14:00-16:00", title: "PAI & CVSSP Induction", location: "Surrey 21BA02", type: "development" },
 
   // --- Week 6 (w/c 2 Nov 2026) ---
   { id: id(), date: "2026-11-03", time: "10:00-13:00", title: "Creative Practice – Who is it for? Rethinking audience and user research", location: "RHUL McCrea 0-02", type: "creative" },
