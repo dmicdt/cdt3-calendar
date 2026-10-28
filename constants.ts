@@ -70,7 +70,7 @@ export const INITIAL_EVENTS: CalendarEvent[] = [
   
   // --- Week 5 (w/c 26 Oct 2026) ---
   { id: id(), date: "2026-10-27", time: "10:00-13:00", title: "Creative Practice – Serious Games", location: "RHUL McCrea 0-02", type: "creative" },
-  { id: id(), date: "2026-10-28", time: "10:00-16:00", title: "Open Inclusion", location: "Surrey 35BA00 or 21BA02", type: "inclusion" },
+  { id: id(), date: "2026-10-28", time: "10:00-16:00", title: "Open Inclusion", location: "Surrey 21BA02", type: "inclusion" },
   { id: id(), date: "2026-10-28", time: "13:00-14:00", title: "Lunch (provided)", location: "Surrey", type: "core" },
   { id: id(), date: "2026-10-29", time: "10:00-13:00", title: "AI Bootcamp++", location: "Surrey 35BA00", type: "ai", mandatory: true },
   { id: id(), date: "2026-10-29", time: "14:00-16:00", title: "PAI & CVSSP Induction", location: "Surrey 35BA00", type: "development" },
@@ -80,7 +80,7 @@ export const INITIAL_EVENTS: CalendarEvent[] = [
   { id: id(), date: "2026-11-04", time: "10:00-13:00", title: "Inclusive Research Session 3", location: "Surrey 35BA00", type: "inclusion" },
   { id: id(), date: "2026-11-04", time: "14:00-16:00", title: "Researcher Development – Cohort Building", location: "Surrey 35BA00", type: "development" },
   { id: id(), date: "2026-11-05", time: "10:00-13:00", title: "AI Bootcamp++", location: "Surrey 35BA00", type: "ai", mandatory: true },
-  { id: id(), date: "2026-11-05", time: "14:00-16:00", title: "Researcher Development – Research Methods (Qualitative & Mixed)", location: "Surrey 35BA00", type: "development" },
+  { id: id(), date: "2026-11-05", time: "14:00-16:00", title: "Researcher Development – Research Methods Case Studies", location: "Surrey 35BA00", type: "development" },
 
   // --- Week 7 (w/c 9 Nov 2026) ---
   { id: id(), date: "2026-11-10", time: "10:00-13:00", title: "Creative Practice – Working with Audiences", location: "RHUL McCrea 0-02", type: "creative" },
