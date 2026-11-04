@@ -80,12 +80,13 @@ export const INITIAL_EVENTS: CalendarEvent[] = [
   { id: id(), date: "2026-11-04", time: "10:00-11:00", title: "FEPS New Staff and Students Health&Safety Induction for Surrey-based researchers", location: "Online", type: "core" },
   { id: id(), date: "2026-11-04", time: "11:15-13:15", title: "Inclusive Research Session 3", location: "Surrey 35BA00", type: "inclusion" },
   { id: id(), date: "2026-11-04", time: "14:15-16:00", title: "Researcher Development – Cohort Building", location: "Surrey 35BA00", type: "development" },
-  { id: id(), date: "2026-11-05", time: "10:00-13:00", title: "AI Bootcamp++", location: "Surrey 35BA00", type: "ai", mandatory: true },
-  { id: id(), date: "2026-11-05", time: "14:00-16:00", title: "Researcher Development – Research Methods Case Studies", location: "Surrey 35BA00", type: "development" },
+  { id: id(), date: "2026-11-05", time: "10:00-11:00", title: "Researcher Development with prof Adrian Hilton", location: "Surrey 35BA00", type: "development" },
+  { id: id(), date: "2026-11-05", time: "11:00-13:00", title: "AI Bootcamp++", location: "Surrey 35BA00", type: "ai", mandatory: true },
+  { id: id(), date: "2026-11-05", time: "14:00-16:00", title: "Researcher Development – Research Methods Case Studies", location: "Surrey 21BA02", type: "development" },
 
   // --- Week 7 (w/c 9 Nov 2026) ---
   { id: id(), date: "2026-11-10", time: "10:00-13:00", title: "Creative Practice – Working with Audiences", location: "RHUL McCrea 0-02", type: "creative" },
-  { id: id(), date: "2026-11-11", time: "9.30-15.30", title: "CDT Conference / IAB", location: "Surrey 21BA02", type: "core" },
+  { id: id(), date: "2026-11-11", time: "9.30-14.00", title: "CDT Independent Advisory Board", location: "Surrey 21BA02", type: "core" },
   { id: id(), date: "2026-11-12", time: "10:00-13:00", title: "AI Bootcamp++", location: "Surrey 35BA00", type: "ai", mandatory: true },
   { id: id(), date: "2026-11-12", time: "14:00-16:00", title: "Researcher Development – Presentation Skills", location: "Surrey 35BA00", type: "development" },
 
