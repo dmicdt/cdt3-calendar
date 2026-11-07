@@ -99,7 +99,7 @@ export const INITIAL_EVENTS: CalendarEvent[] = [
   { id: id(), date: "2026-11-24", time: "9:00-17:00", title: "Challenge – Hackathon Session", location: "to be agreed with your team", type: "challenge" },
   { id: id(), date: "2026-11-25", time: "9:00-17:00", title: "Challenge – Hackathon Session", location: "to be agreed with your team", type: "challenge" },
   { id: id(), date: "2026-11-26", time: "9:00-17:00", title: "Challenge – Hackathon Session", location: "RHUL Futures Studio & Shilling Building Meeting Rooms", type: "challenge" },
-  { id: id(), date: "2026-11-27", time: "9:00-17:00", title: "Challenge Final HackathonPresentations ", location: "RHUL Futures Studio & Shilling Building Meeting Rooms", type: "challenge" },
+  { id: id(), date: "2026-11-27", time: "9:00-17:00", title: "Challenge Final Hackathon Presentations ", location: "RHUL Futures Studio & Shilling Building Meeting Rooms", type: "challenge" },
   
   // --- Week 10 (w/c 30 Nov 2026) ---
   { id: id(), date: "2026-12-01", time: "10:00-14:00", title: "Creative Practice – Creative Bootcamp", location: "RHUL McCrea 0-02", type: "creative" },
