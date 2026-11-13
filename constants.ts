@@ -91,6 +91,7 @@ export const INITIAL_EVENTS: CalendarEvent[] = [
   { id: id(), date: "2026-11-12", time: "14:00-16:00", title: "Researcher Development – Presentation Skills", location: "Surrey 35BA00", type: "development" },
 
   // --- Challenge Hackathon Week 1 (w/c 16 Nov 2026) ---
+  { id: id(), date: "2026-11-16", time: "13:30-14:30", title: "Open Inclusion(optional session with Breandan)", location: "online", type: "inclusion" },
   { id: id(), date: "2026-11-17", time: "10:30-12:00", title: "Challenge – Hackathon Session", location: "Surrey Lecture Theatre B or Teams", type: "challenge" },
   { id: id(), date: "2026-11-20", time: "10:00-15:30", title: "Challenge Hackathon– Google Event kick-off", location: "Google London, Central Saint Giles 1-13, St Giles High St, London WC2H 8AG", type: "challenge" },
 
