@@ -24,7 +24,7 @@ export const HOLIDAYS: Record<string, string> = {
  * The published calendar stops here: Semester 2 dates below are provisional and
  * are hidden from the site, the ICS feed and the countdown until confirmed.
  */
-export const CALENDAR_END = '2026-12-31';
+export const CALENDAR_END = '2027-02-28';
 
 // Helper to generate unique IDs
 const id = () => Math.random().toString(36).substr(2, 9);
@@ -106,13 +106,11 @@ export const INITIAL_EVENTS: CalendarEvent[] = [
   { id: id(), date: "2026-12-01", time: "10:00-14:00", title: "Creative Practice – Creative Bootcamp", location: "RHUL McCrea 0-02", type: "creative" },
   { id: id(), date: "2026-12-02", time: "10:00-13:00", title: "Inclusive Research Session 4", location: "Surrey 35BA00", type: "inclusion" },
   { id: id(), date: "2026-12-02", time: "14:00-15:00", title: "Guest Lecture", location: "Surrey", type: "core" },
-  { id: id(), date: "2026-12-03", time: "10:00-15:30", title: "Ethics Bootcamp – Ethics Foundations", location: "Surrey 35BA00", type: "ethics" },
 
   // --- Week 11 (w/c 7 Dec 2026) ---
   { id: id(), date: "2026-12-05", time: "16:00-17:00", title: "Open Inclusion Assessment 1 deadline", location: "-", type: "inclusion" },
   { id: id(), date: "2026-12-08", time: "All Day", title: "CVMP, London (optional – attendance TBC)", location: "London", type: "core" },
   { id: id(), date: "2026-12-09", time: "All Day", title: "CVMP, London (optional – attendance TBC)", location: "London", type: "core" },
-  { id: id(), date: "2026-12-10", time: "10:00-15:30", title: "Ethics Bootcamp – Ethics Session for all cohorts", location: "Surrey 35BA00", type: "ethics" },
 
   // --- Week 12 (w/c 14 Dec 2026) ---
   { id: id(), date: "2026-12-14", time: "10:00-13:00", title: "Creative Practice – VP Workshop", location: "RHUL Futures Studio", type: "creative" },
@@ -131,10 +129,11 @@ export const INITIAL_EVENTS: CalendarEvent[] = [
   // CHALLENGES (Simulating ranges with explicit entries for simplicity of the example)
   { id: id(), date: "2027-01-19", time: "", title: "CDT Industry Event", location: "Google London", type: "challenge" },
   
-  // ETHICS
-  { id: id(), date: "2027-01-20", time: "10:00-16:00", title: "Ethics Bootcamp", location: "21BA02", type: "ethics" },
-  { id: id(), date: "2027-01-21", time: "10:00-16:00", title: "Ethics Bootcamp", location: "21BA02", type: "ethics" },
-  { id: id(), date: "2027-01-22", time: "10:00-16:00", title: "Ethics Bootcamp", location: "21BA02", type: "ethics" },
+  // ETHICS — bootcamp postponed from 3 & 10 Dec 2026, now running across four Thursdays
+  { id: id(), date: "2027-01-14", time: "10:00-15:30", title: "Ethics Bootcamp", location: "Surrey 35BA00", type: "ethics" },
+  { id: id(), date: "2027-01-21", time: "10:00-15:30", title: "Ethics Bootcamp", location: "Surrey 35BA00", type: "ethics" },
+  { id: id(), date: "2027-01-28", time: "10:00-15:30", title: "Ethics Bootcamp", location: "Surrey 35BA00", type: "ethics" },
+  { id: id(), date: "2027-02-04", time: "10:00-15:30", title: "Ethics Bootcamp", location: "Surrey 35BA00", type: "ethics" },
 
   // AI SURGERIES
   { id: id(), date: "2027-01-29", time: "11:00-12:30", title: "AI Surgery (optional)", location: "21BA02", type: "ai" },
@@ -184,7 +183,6 @@ const addRange = (
         curr.setDate(curr.getDate() + 1);
     }
 };
-
 
 addRange('2027-04-21', '2027-05-28', 'Main Challenge', 'challenge');
 
